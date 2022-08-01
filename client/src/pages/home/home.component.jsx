@@ -24,7 +24,7 @@ function Home() {
         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
           DealPlate
         </Typography>
-        <Button color="inherit">Login</Button>
+        <Button color="inherit">Log in</Button>
       </Toolbar>
     </AppBar>
   </Box>
