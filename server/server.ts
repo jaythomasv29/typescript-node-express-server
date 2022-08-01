@@ -3,6 +3,7 @@ import dotenv from 'dotenv'
 import authRoutes from './routes/auth.js'
 import mongoose from 'mongoose'
 import cookieParser from 'cookie-parser'
+import cors from 'cors'
 const app: Application = express()
 import { CustomError } from './types/error.types.js'
 
@@ -15,11 +16,10 @@ const connect = async () => {
     console.log("error connecting to db")
     throw err
   }
-
 }
 
 dotenv.config()
-
+app.use(cors())
 app.use(cookieParser())
 app.use(express.json())
 

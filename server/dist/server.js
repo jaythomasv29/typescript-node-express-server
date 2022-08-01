@@ -12,6 +12,7 @@ import dotenv from 'dotenv';
 import authRoutes from './routes/auth.js';
 import mongoose from 'mongoose';
 import cookieParser from 'cookie-parser';
+import cors from 'cors';
 const app = express();
 const connect = () => __awaiter(void 0, void 0, void 0, function* () {
     try {
@@ -24,6 +25,7 @@ const connect = () => __awaiter(void 0, void 0, void 0, function* () {
     }
 });
 dotenv.config();
+app.use(cors());
 app.use(cookieParser());
 app.use(express.json());
 app.use("/api/auth", authRoutes);
