@@ -6,6 +6,8 @@ import Login from './pages/login/login.component';
 import Home from './pages/home/home.component';
 import { AuthContext } from './context/AuthContext';
 import Register from './pages/register/register.component';
+import Users from './pages/users/users.component';
+import Main from './pages/main/main.component';
 
 function App() {
   const ProtectedRoute = ({ children }) => {
@@ -18,13 +20,24 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/">
-          <Route path="login" element={<Login />} />
-          <Route path="register" element={<Register />} />
-          <Route index element={<ProtectedRoute>
-            <Home />
+        <Route path="/" element={
+            <ProtectedRoute>
+              <Home />
+            </ProtectedRoute>} 
+          >
+             <Route index element={
+            <ProtectedRoute>
+              <Main />
             </ProtectedRoute>}/>
+            <Route path="users" element={
+            <ProtectedRoute>
+              <Users />
+            </ProtectedRoute>}/>
+          
         </Route>
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+    
       </Routes>
     </BrowserRouter>
   );

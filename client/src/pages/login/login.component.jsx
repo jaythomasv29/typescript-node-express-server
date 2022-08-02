@@ -4,10 +4,10 @@ import { Link, useNavigate } from 'react-router-dom'
 import { AuthContext } from '../../context/AuthContext'
 import './login.styles.scss'
 function Login() {
-  const {dispatch, loading, error} = useContext(AuthContext)
+  const { dispatch, loading, error } = useContext(AuthContext)
   const navigate = useNavigate()
   const [credentials, setCredentials] = useState({})
-console.log(credentials)
+  console.log(credentials)
   const handleChange = (e) => {
     const { name, value } = e.target
     setCredentials({
@@ -45,7 +45,7 @@ console.log(credentials)
         <button disabled={loading} onClick={handleLogin} className="loginBtn">Login</button>
         {error && <span>{error.message}</span>}
       </div>
-        <p className='login__register-title'>Don't have an account yet? Register <Link to="/register">here</Link></p>
+      <p className='login__register-title'>Don't have an account yet? Register <Link to="/register">here</Link></p>
     </div>
   )
 }

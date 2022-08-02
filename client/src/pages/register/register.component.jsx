@@ -27,11 +27,11 @@ function Register() {
     try {
       const form = await axios.post('/auth/register', otherFormData)
       if(form) {
-        toast("Successfully registered")
+        toast.success("Successfully registered")
         reset()
       }
     } catch (err) {
-      if(err) toast("Oh no! Sign up failed, try different credentials")
+      if(err) toast.error("Oh no! Sign up failed, try different credentials")
 
       console.log(err)
     }
